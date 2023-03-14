@@ -1,0 +1,122 @@
+@font-face {
+  font-family: 'IndieFlower';
+  src: url(https://fonts.gstatic.com/s/indieflower/v17/m8JVjfNVeKWVnh3QMuKkFcZVaUuH.woff2) format('woff2');
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-family: sans-serif;
+  scroll-snap-type: mandatory;
+  scroll-snap-points-y: repeat(100vh);
+  scroll-snap-type: y mandatory;
+  background-color: black;
+}
+
+h1 {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  text-align: center;
+  width: 100%;
+  left: 0;
+}
+
+section {
+  border-bottom: 1px solid white;
+  height: 100vh;
+  scroll-snap-align: start;
+  text-align: center;
+  position: relative;
+}
+
+.slide-animation {
+  -webkit-animation: ease-in-out;
+  -webkit-animation-name: slide-animation;
+  -webkit-animation-duration: 15s;
+  animation-fill-mode: forwards;
+}
+
+@-webkit-keyframes slide-animation {
+  0% {
+    transform: scale(1.35, 1.35);
+		-webkit-transform:scale(1.35, 1.35);
+  }
+
+  100% {
+    transform: scale(1, 1);
+		-webkit-transform:scale(1, 1);
+  }
+}
+
+.image {
+  width: 100%;
+  position: relative;
+  margin: auto;
+  transform: scale(1.35, 1.35);
+	-webkit-transform:scale(1.35, 1.35);
+}
+
+.main {
+  overflow: clip;
+  height: 100vh;
+  display: flex;
+}
+
+.body {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 100%;
+  left: 0;
+}
+
+.arrow-main {
+  position: fixed;
+  bottom: 0px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.arrow-left {
+  width: 15%;
+  transform: scaleX(-1);
+  cursor: pointer;
+}
+
+.arrow-right {
+  width: 15%;
+  cursor: pointer;
+}
+
+.subtitle {
+  text-align: center;
+  align-self: center;
+  color: black;
+  font-family: "IndieFlower";
+  font-size: calc(1vw + 12px);
+  background-color1: black;
+  width: 100%;
+  padding: 10px 20px;
+	
+    background-image: url(https://raw.githubusercontent.com/marcustansoon/PhysicsEngine.js-2D/master/SB/subtitle-bg.png?raw=true);
+    background-repeat: no-repeat;
+    /* background-attachment: unset; */
+    background-position: center;
+    background-size: 100% 100%;
+}
+
+.fullscreen-main {
+  position: fixed;
+  top: 0;
+  text-align: right;
+  width: 100%;
+  padding: 15px;
+}
+
+.fullscreen-icon {
+  width: max(5%, 30px);
+  cursor: pointer;
+}
