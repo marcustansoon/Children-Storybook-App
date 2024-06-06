@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PixiJS Getting Started</title>
+    <!-- Load PixiJS library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pixi.js/5.3.10/pixi.min.js"></script>
+    <style>
+        body { margin: 0; }
+        canvas { display: block; }
+    </style>
+</head>
+<body>
+    <!-- Create a container for the PixiJS application -->
+    <div id="pixi-container"></div>
+
+    <script>
+        // Initialize PixiJS
+        const app = new PIXI.Application({
+            width: window.innerWidth, // Use full window width
+            height: window.innerHeight, // Use full window height
+            backgroundColor: 0x00,
+        });
+
+      
+        // Add the PixiJS canvas to the HTML document
+        document.getElementById('pixi-container').appendChild(app.view);
+
+        // Create a PixiJS sprite
+        const sprite = PIXI.Sprite.from('https://i.ibb.co/TT0ZzZs/204405d81fc30ada288a242c3e193b62.jpg');
+        const bgSprite = PIXI.Sprite.from('https://t3.ftcdn.net/jpg/05/59/91/32/360_F_559913226_UVOOxn3HdxwX8TV0RjKlTaRXapULRyQ1.jpg');
+
+        // Set the initial position of the sprite
+        sprite.x = app.screen.width / 2;
+        sprite.y = app.screen.height / 2;
+      
+				bgSprite.x = 0
+      	bgSprite.y = 0
+        
+        // Anchor the sprite in the center
+        sprite.anchor.set(0.5);
+      
+      // Set the scale of the sprite
+      //sprite.scale.x = 3; // Double the width
+      //sprite.scale.y = 3; // Halve the height
+      
+      sprite.scale.set(1);
+      bgSprite.scale.set(1.2);
+
+      
+      // Create a PixiJS container
+			const container = new PIXI.Container();
+			const bgContainer = new PIXI.Container();
+      
+      bgContainer.addChild(bgSprite);
+      container.addChild(sprite);
+      
+        // Add the sprite to the PixiJS stage
+        app.stage.addChild(bgContainer);
+        app.stage.addChild(container);
+
+        // Animation loop
+        app.ticker.add(() => {
+            // Rotate the sprite
+            sprite.rotation += 0.001;
+        });
+    </script>
+</body>
+</html>
